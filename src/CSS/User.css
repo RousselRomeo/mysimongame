@@ -1,0 +1,12 @@
+.user {
+  display: flex;
+  align-content: center;
+  flex-direction: row;
+}
+
+.user__deleteIcon {
+  margin-top: 5px;
+  right: 0;
+  cursor: pointer;
+  padding: 5px;
+}
