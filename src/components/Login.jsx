@@ -1,7 +1,10 @@
 import React, { useState } from 'react'
+import { useStateValue } from '../StateProvider';
 import User from './User';
 
 const Login = () => {
+
+    const [{ user }, dispatch] = useStateValue();
 
     
     const [name, setName] = useState('');
@@ -9,6 +12,10 @@ const Login = () => {
 
     const handleSubmit = (e) => {
         e.preventDefault();
+            dispatch({
+                type: 'ADD_USER',
+                user: name,
+            })
         users.push(name);
 
         setName('');
@@ -17,7 +24,10 @@ const Login = () => {
     const handleDelete = (i) => {
         // console.log(i);
         
-       // users.splice(i,1);
+        dispatch({
+            type: 'REMOVE_USER',
+            id: i,
+        })
         setUsers(users=>users.filter((user,index)=>{
 
             return index !==i

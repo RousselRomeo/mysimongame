@@ -1,9 +1,17 @@
 import React from "react";
 import ReactDOM from "react-dom";
 import App from "./components/App";
+import reducer, { initialState } from "./reducer";
+import { StateProvider } from "./StateProvider";
 
 
-ReactDOM.render(<App />,document.getElementById("root"));
+ReactDOM.render(
+<React.StrictMode>
+    <StateProvider initialState={initialState} reducer={reducer}>
+      <App />
+    </StateProvider>
+  </React.StrictMode>,
+  document.getElementById("root"));
 
 //CHALLENGE: Make this app work by applying what you've learnt.
 //1. When new text is written into the input, its state should be saved.
