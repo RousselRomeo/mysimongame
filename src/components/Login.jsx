@@ -4,37 +4,32 @@ import User from './User';
 
 const Login = () => {
 
-    const [{ user }, dispatch] = useStateValue();
+    const [{ users }, dispatch] = useStateValue();
 
     
     const [name, setName] = useState('');
-    const [users, setUsers] = useState([])
+    // const [users, setUsers] = useState([])
 
     const handleSubmit = (e) => {
         e.preventDefault();
             dispatch({
                 type: 'ADD_USER',
-                user: name,
+                users: name,
             })
-        users.push(name);
+        // users.push(name);
 
         setName('');
       }
 
     const handleDelete = (i) => {
-        // console.log(i);
         
         dispatch({
             type: 'REMOVE_USER',
             id: i,
         })
-        setUsers(users=>users.filter((user,index)=>{
-
-            return index !==i
-
-        }));
-
-
+        // setUsers(users=>users.filter((user,index)=>{
+        //     return index !==i
+        // }));
        // console.log(users);
 
     }
